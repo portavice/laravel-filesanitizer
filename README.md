@@ -1,4 +1,9 @@
 # Laravel FileSanitizer
+[![MIT Licensed](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+[![Check code style](https://github.com/portavice/laravel-filesanitizer/actions/workflows/code-style.yml/badge.svg?style=flat-square)](https://github.com/portavice/laravel-filesanitizer/actions/workflows/code-style.yml)
+[![Tests](https://github.com/portavice/laravel-filesanitizer/actions/workflows/tests.yml/badge.svg?style=flat-square)](https://github.com/portavice/laravel-filesanitizer/actions/workflows/code-style.yml)
+[![Latest Version on Packagist](https://poser.pugx.org/portavice/laravel-filesanitizer/v/stable?format=flat-square)](https://packagist.org/packages/portavice/laravel-filesanitizer)
+[![Total Downloads](https://poser.pugx.org/portavice/laravel-filesanitizer/downloads?format=flat-square)](https://packagist.org/packages/portavice/laravel-filesanitizer)
 
 Laravel integration for [`sytxlabs/filesanitizer`](https://github.com/SytxLabs/FileSanitizer).
 
