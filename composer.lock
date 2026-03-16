@@ -5595,16 +5595,16 @@
         },
         {
             "name": "sytxlabs/filesanitizer",
-            "version": "dev-master",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SytxLabs/FileSanitizer.git",
-                "reference": "52c4cf89181ef6c08ff73853f950eeda273e9f41"
+                "reference": "635f7f055c726c574fd64d46d6f13928d0be3a59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SytxLabs/FileSanitizer/zipball/52c4cf89181ef6c08ff73853f950eeda273e9f41",
-                "reference": "52c4cf89181ef6c08ff73853f950eeda273e9f41",
+                "url": "https://api.github.com/repos/SytxLabs/FileSanitizer/zipball/635f7f055c726c574fd64d46d6f13928d0be3a59",
+                "reference": "635f7f055c726c574fd64d46d6f13928d0be3a59",
                 "shasum": ""
             },
             "require": {
@@ -5621,7 +5621,6 @@
                 "portavice/laravel-pint-config": "^2.0",
                 "roave/security-advisories": "dev-latest"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -5649,9 +5648,9 @@
             ],
             "support": {
                 "issues": "https://github.com/SytxLabs/FileSanitizer/issues",
-                "source": "https://github.com/SytxLabs/FileSanitizer/tree/master"
+                "source": "https://github.com/SytxLabs/FileSanitizer/tree/1.0.1"
             },
-            "time": "2026-03-16T08:18:53+00:00"
+            "time": "2026-03-16T10:32:14+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",

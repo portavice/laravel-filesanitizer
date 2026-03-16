@@ -34,10 +34,9 @@ class FileSanitizerServiceProvider extends ServiceProvider
         Validator::replacer('safe_file', fn (string $message, string $attribute): string => str_replace(':attribute', $attribute, $message ?: 'The :attribute contains unsafe content.'));
 
         if (method_exists(UploadedFile::class, 'macro')) {
-            UploadedFile::macro('sanitize', function (?string $targetPath = null, bool $sanitizeAlways = false) {
+            UploadedFile::macro('sanitize', function (?string $targetPath = null, bool $sanitizeAlways = false, ?string $diskName = null) {
                 /** @var UploadedFile $this */
                 $manager = app(FileSanitizerManager::class);
-
                 $sourcePath = $this->getRealPath();
                 if ($sourcePath === false) {
                     throw new RuntimeException('Uploaded file has no readable temporary path.');
@@ -48,21 +47,18 @@ class FileSanitizerServiceProvider extends ServiceProvider
                     if ($targetPath === false) {
                         throw new RuntimeException('Unable to create temporary file for sanitized upload.');
                     }
-
                     if ($extension !== '') {
                         $renamed = $targetPath . '.' . $extension;
-                        if (!@rename($targetPath, $renamed)) {
+                        if (! @rename($targetPath, $renamed)) {
                             throw new RuntimeException('Unable to prepare sanitized temporary file.');
                         }
                         $targetPath = $renamed;
                     }
                 }
-
-                $result = $manager->process($sourcePath, $targetPath, $sanitizeAlways);
-                $sanitizedFile = new UploadedFile($targetPath, $this->getClientOriginalName(), $this->getMimeType() ?: $this->getClientMimeType(), null, true);
+                $result = $manager->process($sourcePath, $targetPath, $sanitizeAlways, $diskName);
                 return [
                     'result' => $result,
-                    'file' => $sanitizedFile,
+                    'file' => new UploadedFile($targetPath, $this->getClientOriginalName(), $this->getMimeType() ?: $this->getClientMimeType(), null, true),
                     'path' => $targetPath,
                 ];
             });
