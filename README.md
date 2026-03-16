@@ -62,3 +62,4 @@ return [
     'sanitize_always' => env('FILESANITIZER_SANITIZE_ALWAYS', false),
 ];
 ```
+This config will always sanitize files when set to `true`, even if the file is already considered safe. This can be useful if you want to ensure that all files are sanitized, regardless of their initial safety status.
