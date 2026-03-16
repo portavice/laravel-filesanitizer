@@ -16,6 +16,17 @@
     "orchestra/testbench": "^8.0|^9.0|^10.0",
     "phpunit/phpunit": "^10.0|^11.0"
   },
+  "authors": [
+    {
+      "name": "Shaun Lüdeke",
+      "email": "shaun.luedeke@portavice.de",
+      "homepage": "https://portavice.de",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/portavice/laravel-filesanitizer/issues"
+  },
   "autoload": {
     "psr-4": {
       "Portavice\\LaravelFileSanitizer\\": "src/"
