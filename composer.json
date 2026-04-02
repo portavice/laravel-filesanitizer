@@ -46,8 +46,6 @@
       }
     }
   },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
   "scripts": {
     "cs": "pint --config vendor/portavice/laravel-pint-config/pint.json --test",
     "csfix": "pint --config vendor/portavice/laravel-pint-config/pint.json",
