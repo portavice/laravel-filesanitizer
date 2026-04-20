@@ -5,9 +5,9 @@
 [![Latest Version on Packagist](https://poser.pugx.org/portavice/laravel-filesanitizer/v/stable?format=flat-square)](https://packagist.org/packages/portavice/laravel-filesanitizer)
 [![Total Downloads](https://poser.pugx.org/portavice/laravel-filesanitizer/downloads?format=flat-square)](https://packagist.org/packages/portavice/laravel-filesanitizer)
 
-Laravel integration for [`sytxlabs/filesanitizer`](https://github.com/SytxLabs/FileSanitizer).
+Laravel integration for [`portavice/filesanitizer`](https://github.com/portavice/FileSanitizer).
 
-The upstream package is installed as `sytxlabs/filesanitizer` and uses the class `SytxLabs\FileSanitizer\FileSanitizer`.
+The upstream package is installed as `portavice/filesanitizer` and uses the class `Portavice\FileSanitizer\FileSanitizer`.
 
 ## Installation
 

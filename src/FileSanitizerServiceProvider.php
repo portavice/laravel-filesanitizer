@@ -8,7 +8,7 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use RuntimeException;
-use SytxLabs\FileSanitizer\FileSanitizer as BaseFileSanitizer;
+use Portavice\FileSanitizer\FileSanitizer as BaseFileSanitizer;
 
 class FileSanitizerServiceProvider extends ServiceProvider
 {
