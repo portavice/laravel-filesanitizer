@@ -4,8 +4,8 @@ namespace Portavice\LaravelFileSanitizer;
 
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
-use RuntimeException;
 use Portavice\FileSanitizer\FileSanitizer as BaseFileSanitizer;
+use RuntimeException;
 
 class FileSanitizerManager
 {

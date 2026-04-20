@@ -7,8 +7,8 @@ use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
-use RuntimeException;
 use Portavice\FileSanitizer\FileSanitizer as BaseFileSanitizer;
+use RuntimeException;
 
 class FileSanitizerServiceProvider extends ServiceProvider
 {
