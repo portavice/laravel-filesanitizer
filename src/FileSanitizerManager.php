@@ -61,9 +61,9 @@ class FileSanitizerManager
         }
     }
 
-    public function processUploadedFile(UploadedFile $file, ?string $outputPath = null, ?bool $sanitizeAlways = null): array
+    public function processUploadedFile(UploadedFile $file, ?string $outputPath = null, ?bool $sanitizeAlways = null, ?string $diskName = null): array
     {
-        return $this->process($file->getRealPath(), $outputPath, $sanitizeAlways);
+        return $this->process($file->getRealPath(), $outputPath, $sanitizeAlways, $diskName);
     }
 
     public function safe(array $result): bool

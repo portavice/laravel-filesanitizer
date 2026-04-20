@@ -2,6 +2,8 @@
 
 namespace Portavice\LaravelFileSanitizer;
 
+use Composer\InstalledVersions;
+use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
@@ -16,6 +18,12 @@ class FileSanitizerServiceProvider extends ServiceProvider
         $this->app->singleton(BaseFileSanitizer::class, fn () => new BaseFileSanitizer());
         $this->app->singleton('filesanitizer', fn ($app) => new FileSanitizerManager($app->make(BaseFileSanitizer::class), (array) $app['config']->get('filesanitizer', [])));
         $this->app->alias('filesanitizer', FileSanitizerManager::class);
+        if ($this->app->runningInConsole() && class_exists(AboutCommand::class) && class_exists(InstalledVersions::class)) {
+            AboutCommand::add('FileSanitizer', [
+                'Version' => InstalledVersions::getPrettyVersion('portavice/laravel-filesanitizer') ?? 'v1.x',
+                'Author' => 'portavice GmbH',
+            ]);
+        }
     }
 
     public function boot(): void

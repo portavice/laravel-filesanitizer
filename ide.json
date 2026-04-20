@@ -1,0 +1,23 @@
+﻿{
+    "$schema": "https://laravel-ide.com/schema/laravel-ide-v2.json",
+    "completions": [
+        {
+            "complete": "configKey",
+            "options": {
+                "prefix": "filesystems.disks"
+            },
+            "condition": [
+                {
+                    "methodNames": ["process", "processUploadedFile"],
+                    "classFqn": ["\\Portavice\\LaravelFileSanitizer\\Facades\\FileSanitizer", "\\Portavice\\LaravelFileSanitizer\\FileSanitizerManager"],
+                    "parameters": [3]
+                },
+                {
+                    "methodNames": ["sanitizeAlways"],
+                    "classFqn": ["\\Portavice\\LaravelFileSanitizer\\Facades\\FileSanitizer", "\\Portavice\\LaravelFileSanitizer\\FileSanitizerManager"],
+                    "parameters": [2]
+                }
+            ]
+        }
+    ]
+}
