@@ -5,9 +5,9 @@
 [![Latest Version on Packagist](https://poser.pugx.org/portavice/laravel-filesanitizer/v/stable?format=flat-square)](https://packagist.org/packages/portavice/laravel-filesanitizer)
 [![Total Downloads](https://poser.pugx.org/portavice/laravel-filesanitizer/downloads?format=flat-square)](https://packagist.org/packages/portavice/laravel-filesanitizer)
 
-Laravel integration for [`sytxlabs/filesanitizer`](https://github.com/SytxLabs/FileSanitizer).
+Laravel integration for [`portavice/filesanitizer`](https://github.com/portavice/FileSanitizer).
 
-The upstream package is installed as `sytxlabs/filesanitizer` and uses the class `SytxLabs\FileSanitizer\FileSanitizer`.
+The upstream package is installed as `portavice/filesanitizer` and uses the class `Portavice\FileSanitizer\FileSanitizer`.
 
 ## Installation
 
@@ -62,3 +62,4 @@ return [
     'sanitize_always' => env('FILESANITIZER_SANITIZE_ALWAYS', false),
 ];
 ```
+This config will always sanitize files when set to `true`, even if the file is already considered safe. This can be useful if you want to ensure that all files are sanitized, regardless of their initial safety status.

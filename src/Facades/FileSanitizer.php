@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static array processUploadedFile(\Illuminate\Http\UploadedFile $file, ?string $outputPath = null, ?bool $sanitizeAlways = null)
  * @method static bool safe(array $result)
  * @method static array issues(array $result)
- * @method static \SytxLabs\FileSanitizer\FileSanitizer getSanitizer()
+ * @method static \Portavice\FileSanitizer\FileSanitizer getSanitizer()
  */
 class FileSanitizer extends Facade
 {

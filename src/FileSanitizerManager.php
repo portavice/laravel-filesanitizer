@@ -4,8 +4,8 @@ namespace Portavice\LaravelFileSanitizer;
 
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use Portavice\FileSanitizer\FileSanitizer as BaseFileSanitizer;
 use RuntimeException;
-use SytxLabs\FileSanitizer\FileSanitizer as BaseFileSanitizer;
 
 class FileSanitizerManager
 {
@@ -61,9 +61,9 @@ class FileSanitizerManager
         }
     }
 
-    public function processUploadedFile(UploadedFile $file, ?string $outputPath = null, ?bool $sanitizeAlways = null): array
+    public function processUploadedFile(UploadedFile $file, ?string $outputPath = null, ?bool $sanitizeAlways = null, ?string $diskName = null): array
     {
-        return $this->process($file->getRealPath(), $outputPath, $sanitizeAlways);
+        return $this->process($file->getRealPath(), $outputPath, $sanitizeAlways, $diskName);
     }
 
     public function safe(array $result): bool

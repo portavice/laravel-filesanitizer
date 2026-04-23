@@ -2,11 +2,13 @@
 
 namespace Portavice\LaravelFileSanitizer;
 
+use Composer\InstalledVersions;
+use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
+use Portavice\FileSanitizer\FileSanitizer as BaseFileSanitizer;
 use RuntimeException;
-use SytxLabs\FileSanitizer\FileSanitizer as BaseFileSanitizer;
 
 class FileSanitizerServiceProvider extends ServiceProvider
 {
@@ -16,6 +18,12 @@ class FileSanitizerServiceProvider extends ServiceProvider
         $this->app->singleton(BaseFileSanitizer::class, fn () => new BaseFileSanitizer());
         $this->app->singleton('filesanitizer', fn ($app) => new FileSanitizerManager($app->make(BaseFileSanitizer::class), (array) $app['config']->get('filesanitizer', [])));
         $this->app->alias('filesanitizer', FileSanitizerManager::class);
+        if ($this->app->runningInConsole() && class_exists(AboutCommand::class) && class_exists(InstalledVersions::class)) {
+            AboutCommand::add('FileSanitizer', [
+                'Version' => InstalledVersions::getPrettyVersion('portavice/laravel-filesanitizer') ?? 'v1.x',
+                'Author' => 'portavice GmbH',
+            ]);
+        }
     }
 
     public function boot(): void
@@ -34,7 +42,7 @@ class FileSanitizerServiceProvider extends ServiceProvider
         Validator::replacer('safe_file', fn (string $message, string $attribute): string => str_replace(':attribute', $attribute, $message ?: 'The :attribute contains unsafe content.'));
 
         if (method_exists(UploadedFile::class, 'macro')) {
-            UploadedFile::macro('sanitize', function (?string $targetPath = null, bool $sanitizeAlways = false, ?string $diskName = null) {
+            UploadedFile::macro('sanitize', function (?string $targetPath = null, ?bool $sanitizeAlways = null, ?string $diskName = null) {
                 /** @var UploadedFile $this */
                 $manager = app(FileSanitizerManager::class);
                 $sourcePath = $this->getRealPath();
